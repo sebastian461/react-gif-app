@@ -4,10 +4,10 @@ import { AddCategory } from "./components/AddCategory";
 export const GifApp = () => {
   const [categories, setCategories] = useState([]);
 
-  const onAddCategory = () => {
+  const onAddCategory = (event) => {
     /* En React hay que evitar la mutación de objetos */
     //categories.push("Nueva categoria");
-    setCategories(["Nueva categoria", ...categories]);
+    setCategories([event, ...categories]);
   };
 
   return (
@@ -16,7 +16,11 @@ export const GifApp = () => {
       <h1>GifApp</h1>
 
       {/* Input */}
-      <AddCategory setCategories={setCategories} />
+      {/* Padre-Hijo 
+        <AddCategory setCategories={setCategories} />
+      */}
+      {/* Hijo-Padre */}
+      <AddCategory onNewCategory={(event) => onAddCategory(event)} />
 
       {/* Listado de Gif */}
       <ol>
