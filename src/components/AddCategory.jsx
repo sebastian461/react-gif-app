@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AddCategory = () => {
+export const AddCategory = ({ setCategories }) => {
   const [inputValue, setInputValue] = useState("");
 
   const onInputChange = ({ target }) => {
@@ -10,6 +10,13 @@ export const AddCategory = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log(inputValue);
+
+    if (inputValue.trim().length < 1) return;
+
+    /* Para evitar enviar las categorías como una prop
+    al usar el método generado con el 'useState' se pueden usar las categorias por un callback */
+    setCategories((categories) => [inputValue, ...categories]);
+    setInputValue("");
   };
 
   return (

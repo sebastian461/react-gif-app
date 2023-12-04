@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AddCategory } from "./components/AddCategory";
 
 export const GifApp = () => {
-  const [categories, setCategories] = useState(["Item 1"]);
+  const [categories, setCategories] = useState([]);
 
   const onAddCategory = () => {
     /* En React hay que evitar la mutación de objetos */
@@ -16,10 +16,9 @@ export const GifApp = () => {
       <h1>GifApp</h1>
 
       {/* Input */}
-      <AddCategory />
+      <AddCategory setCategories={setCategories} />
 
       {/* Listado de Gif */}
-      <button onClick={onAddCategory}>Agregar</button>
       <ol>
         {categories.map((c) => {
           return <li key={c}>{c}</li>;
