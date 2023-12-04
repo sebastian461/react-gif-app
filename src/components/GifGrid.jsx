@@ -18,11 +18,12 @@ export const GifGrid = ({ category }) => {
   }, []); //si el arreglo está vació, el componente ejecuta el callback solo la primera vez que se renderiza */
 
   const { images, isLoading } = useFetchGifs(category);
-  console.log({ isLoading });
 
   return (
     <>
       <h3>{category}</h3>
+      {isLoading && <h2>Cargando...</h2>}
+
       {/* Para agregar clases se usa la palabra 'className' */}
       <div className="card-grid">
         {images.map((image) => (
