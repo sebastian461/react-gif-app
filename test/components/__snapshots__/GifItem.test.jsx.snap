@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en GifItem snapshot debe regresar un error al no enviar titulo y url 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Titulo de prueba"
+      src="http://urltest.com/dragonball.jpg"
+    />
+    <p>
+      Titulo de prueba
+    </p>
+  </div>
+</div>
+`;
